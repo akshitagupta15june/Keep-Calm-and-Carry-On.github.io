@@ -57,6 +57,11 @@ button {
   cursor: pointer;
 }
 
+.list-paragraph{
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 button:hover {
   background-color: #d32f2f;
 }

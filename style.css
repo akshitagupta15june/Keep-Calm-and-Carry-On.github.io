@@ -2,15 +2,9 @@ html {
   height: 100%;
   width: 100%;
 }
-body{
-  background-image: url('Images/back.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  
-}
 p{
-  color: white;
+  color: black;
+  font-size: 20px;
 }
 /* Add a black background color to the top navigation */
 .topnav {

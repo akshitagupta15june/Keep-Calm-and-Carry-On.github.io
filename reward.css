@@ -14,6 +14,10 @@ p{
   align-items: center;
 }
 
+ol{
+  color: white;
+}
+
 .timer {
   display: flex;
   flex-direction: column;

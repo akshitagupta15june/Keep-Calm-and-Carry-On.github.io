@@ -39,7 +39,7 @@ async function getPhoneAndOtp() {
       code: otp
     }
     var url = "https://workathon.harrykanani.repl.co/api/auth/verifyotp";
-    const response = await fetch(url, {
+    let response = await fetch(url, {
       method: 'POST',
       // mode: 'no-cors',
       headers: {
@@ -47,9 +47,17 @@ async function getPhoneAndOtp() {
       },
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
-    console.log(response);
 
-     window.location.href = "TaskWhiz.html";
+    if(response.status == 200) {
+      response = await response.json();
+    console.log(response);
+    debugger;
+    localStorage.setItem("id", response._id);
+    window.location.href = "TaskWhiz.html";
+    } else {
+      alert("You're not registered. Please register first.");
+    }
+    
 
   }
 

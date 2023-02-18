@@ -23,7 +23,7 @@ async function getRegistered(){
       body: JSON.stringify(data)
     });
     console.log(response.status, typeof response.status);
-    
+    debugger;
     if(response.status == 200) {
       response = await response.json();
     console.log(response)

@@ -2,10 +2,9 @@ const timer = document.querySelector('.time-left');
 const startButton = document.querySelector('.start');
 const resetButton = document.querySelector('.reset');
 let defaultTime = 25 * 60;
-const defaultBreakTime = 5 * 60;
+const breakTime = 5 * 60;
+let cycleCount = 0;
 let countdown;
-
-let timerCount = 0;
 
 function timerDisplay(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -21,22 +20,40 @@ function startTimer() {
   countdown = setInterval(() => {
     defaultTime <= 0 ? clearInterval(countdown) : defaultTime--;
     timerDisplay(defaultTime);
+    if (defaultTime === 0) {
+      clearInterval(countdown);
+      if (cycleCount < 3) {
+        cycleCount++;
+        startBreakTimer();
+      } else {
+        cycleCount = 0;
+        defaultTime = 25 * 60;
+        timerDisplay(defaultTime);
+        alert('Congratulations! You have completed four cycles.');
+      }
+    }
   }, 1000);
-
 }
 
 function startBreakTimer() {
-  timerDisplay(defaultBreakTime);
+  console.log('break timer started!!!');
+  defaultTime = breakTime;
+  timerDisplay(defaultTime);
   countdown = setInterval(() => {
-    defaultBreakTime <= 0 ? (clearInterval(countdown), startTimer()) : defaultBreakTime--;
-    timerDisplay(defaultBreakTime);
+    defaultTime <= 0 ? clearInterval(countdown) : defaultTime--;
+    timerDisplay(defaultTime);
+    if (defaultTime === 0) {
+      clearInterval(countdown);
+      defaultTime = 25 * 60;
+      startTimer();
+    }
   }, 1000);
 }
 
-
 function resetTimer() {
-  console.log('reset cliked!!!!');
+  console.log('reset clicked!!!!');
   defaultTime = 25 * 60;
+  cycleCount = 0;
   clearInterval(countdown);
   timerDisplay(defaultTime);
 }

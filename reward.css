@@ -8,14 +8,14 @@ p{
   color: white;
 }
 
+ol{
+  color: white;
+}
+
 .pomodoro-timer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-ol{
-  color: white;
 }
 
 .timer {

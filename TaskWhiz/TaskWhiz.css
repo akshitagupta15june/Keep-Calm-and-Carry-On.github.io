@@ -126,10 +126,69 @@ label {
       .checkdiv:first-child{
         padding-top: 10px;
       }
-      .notChecked{
-        width: 20px;
-        height: 20px;
+      .checkdiv:last-child{
+        padding-bottom: 10px;
       }
+
+      /*                 button in list               */
+  .notChecked {
+  background: #205295;
+  background-image: -webkit-linear-gradient(top, #205295, #ffffff);
+  background-image: -moz-linear-gradient(top, #205295, #ffffff);
+  background-image: -ms-linear-gradient(top, #205295, #ffffff);
+  background-image: -o-linear-gradient(top, #205295, #ffffff);
+  background-image: linear-gradient(to bottom, #205295, #ffffff);
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 6px 6px 6px 6px;
+  text-decoration: none;
+  margin-left: 260px;
+}
+
+.notChecked:hover {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #205295);
+  background-image: -moz-linear-gradient(top, #ffffff, #205295);
+  background-image: -ms-linear-gradient(top, #ffffff, #205295);
+  background-image: -o-linear-gradient(top, #ffffff, #205295);
+  background-image: linear-gradient(to bottom, #ffffff, #205295);
+  text-decoration: none;
+}
+
+/*             delete button           */
+
+.delete {
+  background: #205295;
+  background-image: -webkit-linear-gradient(top, #205295, #ffffff);
+  background-image: -moz-linear-gradient(top, #205295, #ffffff);
+  background-image: -ms-linear-gradient(top, #205295, #ffffff);
+  background-image: -o-linear-gradient(top, #205295, #ffffff);
+  background-image: linear-gradient(to bottom, #205295, #ffffff);
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 6px 6px 6px 6px;
+  text-decoration: none;
+}
+
+.delete:hover {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #205295);
+  background-image: -moz-linear-gradient(top, #ffffff, #205295);
+  background-image: -ms-linear-gradient(top, #ffffff, #205295);
+  background-image: -o-linear-gradient(top, #ffffff, #205295);
+  background-image: linear-gradient(to bottom, #ffffff, #205295);
+  text-decoration: none;
+}
+
+
 
       /*               checked            */
       .checked{

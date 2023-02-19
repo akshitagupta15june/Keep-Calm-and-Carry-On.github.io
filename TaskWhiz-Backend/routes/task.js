@@ -10,4 +10,6 @@ router.post("/getTask", taskController.getTasks);
 
 router.post("/markComplete", taskController.markComplete);
 
+router.post("/deleteTask", taskController.deleteTask);
+
 module.exports = router;

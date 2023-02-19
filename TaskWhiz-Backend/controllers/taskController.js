@@ -55,6 +55,7 @@ module.exports = {
 				},
 				{
 					new: true,
+					upsert: true,
 				},
 			);
 
@@ -62,6 +63,28 @@ module.exports = {
 				res,
 				"Task marked as complete",
 				task,
+			);
+		} catch (error) {
+			return apiResponse.ErrorResponse(res, error);
+		}
+	},
+
+	deleteTask: async (req, res) => {
+		try {
+			let task = await TaskModel.findOneAndDelete({
+				_id: mongoose.Types.ObjectId(req.body.task_id),
+			});
+
+			if (!task)
+				return apiResponse.validationError(res, "Task not found");
+
+			return apiResponse.successResponseWithData(
+				res,
+				"Task deleted successfully",
+				{
+					status: 1,
+					message: "Task deleted successfully",
+				},
 			);
 		} catch (error) {
 			return apiResponse.ErrorResponse(res, error);

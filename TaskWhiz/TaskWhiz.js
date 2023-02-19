@@ -4,6 +4,13 @@ const user_id = localStorage.getItem("id");
 
 
 var arr = [];
+
+//             onload display
+async function myFunction() {
+  await getTasks();
+  display();
+}
+
 async function getTasks() {
   var data = {
     user_id
@@ -20,6 +27,7 @@ async function getTasks() {
   console.log(response);
 
   arr = response;
+  return;
 }
 
 async function addTasks(inputVal) {
@@ -60,6 +68,7 @@ function getInputValue() {
 // rendering tasks
 function display() {
   $("#myList").empty();
+
   let list = document.getElementById("myList");
 
   arr.forEach((item) => {
@@ -69,27 +78,89 @@ function display() {
     li.id = item._id;
 
 
-    // var checkbox = document.createElement("input");
-    // checkbox.type = "checkbox";
-    // checkbox.id = item._id + "";
-    // checkbox.className = "notChecked";
+    var button = document.createElement("button");
+    button.type = "button";
+    button.value = "false";
+    button.id = item._id + "-chk";
+    button.className = "notChecked";
+    button.innerText = "✔️";
 
-    var checkbox = document.createElement("button");
-    checkbox.type = "button";
-    checkbox.value = "true";
-    checkbox.id = item._id + "";
-    checkbox.className = "notChecked";
+    var deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.value = "false";
+    deleteButton.id = item._id + "-btn";
+    deleteButton.className = "delete";
+    deleteButton.innerText = "🪚";
 
 
-    li.appendChild(checkbox);
+    li.appendChild(button);
+    li.appendChild(deleteButton);
 
     list.appendChild(li);
+
+    // adding eventlistner for checked
+
+    $("#" + item._id + "-chk").on("click", function() {
+      var id = $(this).attr("id").split("-")[0];
+      $("#" + id).toggleClass("checked");
+
+      if ($("#" + item._id + "-chk").attr("value") === "false") {
+        $("#" + item._id + "-chk").attr("value", "true");
+        markAsComplete(id, true);
+      }
+      else {
+        $("#" + item._id + "-chk").attr("value", "false");
+        markAsComplete(id, false);
+      }
+
+    });
+
+    // getting delete instruction
+
+    $("#" + item._id + "-btn").on("click", function() {
+      var id = $(this).attr("id").split("-")[0];
+      deleteTask(id);
+      alert("Deleted Successfully");
+    });
   })
 }
 
-// adding eventlistner for checked
+//            mark as complete
 
-$("body").on('click', '.checked', function() {
-  var publisherId = $(this).attr('id');
-  alert('PublisherId : ' + publisherId);
-});
+async function markAsComplete(id, value) {
+  var data = {
+    task_id: id,
+    is_completed: value
+  }
+  var url = "https://workathon.harrykanani.repl.co/api/tasks/markComplete";
+  var response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  response = await response.json();
+  console.log(response);
+
+}
+
+//                       delete task
+
+async function deleteTask(id) {
+  var data = {
+    task_id: id,
+  }
+  var url = "https://workathon.harrykanani.repl.co/api/tasks/deleteTask";
+  var response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  response = await response.json();
+  console.log(response);
+  arr = response;
+  display();
+}

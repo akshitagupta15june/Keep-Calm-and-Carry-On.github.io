@@ -48,16 +48,16 @@ async function getPhoneAndOtp() {
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
 
-    if(response.status == 200) {
+    if (response.status == 200) {
       response = await response.json();
-    console.log(response);
-    debugger;
-    localStorage.setItem("id", response._id);
-    window.location.href = "TaskWhiz.html";
+      console.log(response);
+      debugger;
+      localStorage.setItem("id", response._id);
+      window.location.href = "TaskWhiz.html";
     } else {
       alert("You're not registered. Please register first.");
     }
-    
+
 
   }
 

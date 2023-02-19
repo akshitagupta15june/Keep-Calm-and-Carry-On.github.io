@@ -1,0 +1,26 @@
+{
+	"name": "workathon-backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "harikanani",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"express-validator": "^6.15.0",
+		"jsonwebtoken": "^9.0.0",
+		"log4js": "^6.7.1",
+		"moment": "^2.29.4",
+		"moment-timezone": "^0.5.40",
+		"mongoose": "^6.9.2",
+		"morgan": "^1.10.0",
+		"swagger-ui-express": "^4.6.0",
+		"twilio": "^4.7.2"
+	}
+}

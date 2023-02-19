@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TaskWhiz</title>
+    <link href='https://fonts.googleapis.com/css?family=Dosis:600' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="TaskWhiz.css">
+  </head>
+  <body onload="myFunction()">
+    <h1>TaskWhiz</h1>
 
-<head>
-  <meta charset="utf-8">
-  <title>TaskWhiz</title>
-  <link href='https://fonts.googleapis.com/css?family=Dosis:600' rel='stylesheet' type='text/css'>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="TaskWhiz.css">
-</head>
+    <span class="container">
+      <div class="box" id="myList"></div>
+    </span>
 
-<body>
-  <h1>TaskWhiz</h1>
-
-  <span class="container">
-    <div class="box" id="myList"></div>
-  </span>
-
-  <div class="input">
-    <input type="text" class="inputTask" placeholder="📃" id="myInput">
-    <button type="button" class="btn" onclick="getInputValue();">➕</button>
-  </div>
+<div class="input">
+  <input type="text" class="inputTask" placeholder="📃" id="myInput">
+  <button type="button" class="btn" onclick="getInputValue();">➕</button>
+</div>
 
 
 
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
     crossorigin="anonymous"></script>
-  <script src="TaskWhiz.js"></script>
-</body>
-
+    <script src="TaskWhiz.js"></script>
+  </body>
 </html>

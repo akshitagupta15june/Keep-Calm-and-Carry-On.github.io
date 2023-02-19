@@ -72,7 +72,7 @@ We also became experts in using Node.js for managing time tracking and task mana
 
 In addition to these technical skills, we also learned how to collaborate and work remotely with peers. We became experts in using tools like Replit, Discord, and GitHub to facilitate communication and collaboration, and we developed strong teamwork and project management skills that will serve us well in our future endeavors.
 
-##🚀 How we have used **Github** in our project? 🚀
+## 🚀 How we have used **Github** in our project? 🚀
 
 We used Github in different ways:
 
